@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="stylesheet" href="/semantic/dist/semantic.min.css")
+  body(ng-app = 'app' , ng-cloak)
+    block content
+    block scripts
+      script(src='http://localhost:3000/socket.io/socket.io.js')
+      script(src="/bower_components/jquery/dist/jquery.min.js")
+      script(src="/angular/angular.min.js")
+      script(src="/javascripts/main.js")
+      script(src="/service/indexFactory.js")
+      script(src="/controller/index_controller.js")

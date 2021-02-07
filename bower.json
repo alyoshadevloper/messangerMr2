@@ -1,0 +1,14 @@
+{
+  "name": "messangermr-2",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "Alisher <etg2018@inbox.ru>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/alyoshadevloper/messangerMr2",
+  "dependencies": {
+    "semantic": "^2.4.1",
+    "angular": "^1.8.0"
+  }
+}

@@ -1,0 +1,27 @@
+extends layout
+
+block content
+ div(ng-controller = 'indexcontrller' , ng-init= "init()")
+  .ui.one.column.stackable.center.aligned.page.grid.margin-30
+    .column.twelve.wide
+      .ui.stacked.segment.gameArea(ng-click="onclickplayer($event)")
+        .circle(ng-repeat= "player in pleyers " , 
+                     ng-style="{ 'left' : player.position.x , 'top' : player.position.y ,}",
+                     id="{{player.id}}", 
+                     class= "{{player.color}}" )
+          .relative
+            span.name {{player.username }}
+      .ui.items.chat
+        .item(ng-repeat='message in messages')
+          .content(ng-if="!message.type.code")
+            a.header.name {{ message.username }} &nbsp 
+            .description.message(ng-if="!message.type.message") Oflayn
+            .description.message(ng-if="message.type.message" ) Online
+          .content(ng-if="message.type.code")
+            a.header.name {{ message.username }} &nbsp 
+            .description.message  {{ message.text }}
+      form.ui.action.input.fluid(ng-submit="newMessage()")
+        input(type='text' placeholder='Xat yozing')
+        button.ui.button(type="submit") Send
+
+
