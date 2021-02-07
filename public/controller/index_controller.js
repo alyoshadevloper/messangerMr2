@@ -1,5 +1,5 @@
 
-app.controller('indexcontrller' , ['$scope' , 'indexFactory' ,  ($scope , indexFactory) => {
+app.controller('indexcontrller' , ['$scope' , 'indexFactory' , 'configFactory',   ($scope , indexFactory , configFactory) => {
     console.log('Hello Angular Index pug')
     $scope.messages = []
     $scope.pleyers= {}
@@ -24,12 +24,13 @@ app.controller('indexcontrller' , ['$scope' , 'indexFactory' ,  ($scope , indexF
         }
     }
 
-    const initSocket = (username) => {
+   async const initSocket = (username) => {
         const option =  {
             reconncetionAttempts: 3,
             reconncetionDelay: 600
         }
-        indexFactory.connectSocket('http://localhost:3000/' , option)
+        const socketUrl = await configFactory.getconfig() //// null localhost:3000
+        indexFactory.connectSocket(socketUrl.data.socketUrl , option)
         .then((socket) => {
             console.log('Foydalanuvchi ulandi' )
             // console.log(username)

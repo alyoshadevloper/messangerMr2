@@ -3,7 +3,7 @@
         "socketUrl" : "http://localhost:3000/"
     },
     "production": {
-        "socketUrl" : ""
+        "socketUrl" : "https://mysterious-shore-07737.herokuapp.com/"
     }
 
 
